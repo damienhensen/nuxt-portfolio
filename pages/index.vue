@@ -4,7 +4,7 @@
     <b-container class="mt-4">
       <h1 class="text-center">Over mij</h1>
       <b-row class="mt-3 mb-5">
-        <b-col lg="8">
+        <b-col lg="8" cols="12" class="text-center">
           <b-img
             fluid
             src="/me.png"

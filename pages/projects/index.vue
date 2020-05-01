@@ -2,6 +2,7 @@
   <div>
     <Nav />
     <b-container class="projects">
+      <h1 class="text-center m-4">Mijn werk</h1>
       <b-row class="mt-3">
         <b-col
           v-for="project of projects"
