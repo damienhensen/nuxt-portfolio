@@ -16,7 +16,7 @@
               md="12"
             >
               <b-row>
-                <b-img-lazy
+                <b-img
                   fluid
                   v-bind:src="project.image"
                 />
@@ -49,7 +49,7 @@ export default {
     }
   },
   async fetch () {
-    this.projects = await this.$axios.$get('http://127.0.0.1:3001/projects')
+    this.projects = await this.$axios.$get('https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projects')
   }
 }
 </script>

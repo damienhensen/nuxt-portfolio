@@ -6,7 +6,7 @@
         to="/"
         class="navbar-brand"
       >
-        Damien Hensen
+        &lt;Damien Hensen /&gt;
       </n-link>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -14,7 +14,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <n-link
-            to="/about-me"
+            to="/"
             class="nav-link"
           >
           About me

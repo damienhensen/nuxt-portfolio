@@ -100,7 +100,7 @@ export default {
     }
   },
   async fetch () {
-    this.project = await this.$axios.$get(`http://127.0.0.1:3001/projects/${this.$route.params.id}`)
+    this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projects/${this.$route.params.id}`)
   },
   methods: {
     onSlideStart (slide) {
