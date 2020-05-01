@@ -4,52 +4,95 @@
         "id": "my-band",
         "image": "/myband.jpg",
         "title": "My Band",
-        "details": "We kregen code van een leraar op school, ALTO Router en Plates/League (template engine). Ik maakte user stories, daarna maakte ik een design en wireframes. Toen begon ik te programmeren.",
-        "skills": [
-                    "HTML", 
-                    "CSS",
-                    "JS",
-                    "SASS",
-                    "PHP",
-                    "SQL"
-                  ]
+        "details": "We kregen code van een leraar op school, ALTO Router en Plates/League (template engine).\r\nIk maakte user stories, daarna maakte ik een design en wireframes.\r\nToen begon ik te programmeren.",
+        "slides": [
+          {
+            "caption": "Home",
+            "image": "/slides/myband1.jpg"
+          },
+          {
+            "caption": "Tour",
+            "image": "/slides/myband2.jpg"
+          }
+        ],
+        "skills": 
+        [
+          "HTML", 
+          "CSS",
+          "JS",
+          "SASS",
+          "PHP",
+          "SQL",
+          "Axure",
+          "PhotoShop"
+        ],
+        "downloads": [
+          {
+            "name": "Wireframe",
+            "filename": "damien-hensen-myband-wireframe.rp",
+            "link": "/downloads/myband/wireframes.rp"
+          },
+          {
+            "name": "Design",
+            "filename": "damien-hensen-myband-design.psd",
+            "link": "/downloads/myband/home-desktop.psd"
+          },
+          {
+            "name": "User Stories",
+            "filename": "damien-hensen-myband-userstories.xlsx",
+            "link": "/downloads/myband/userstories.xlsx"
+          }
+        ],
+        "links": [
+          {
+            "to": "Site",
+            "link": "https://damienhensen.nl/MyBand"
+          },
+          {
+            "to": "GitHub",
+            "link": "https://github.com/damienhensen/MyBand"
+          }
+        ]
     },
     {
         "id": "purple-shrimp",
         "image": "/purpleshrimp.png",
         "title": "Purple Shrimp",
         "details": "Eerst maakte mijn teamgenoot een design voor de site. Hij maakte hoe alles eruit zag. Ik bedacht hoe alles moest werken. Ik had een flowchart gemaakt om te laten zien hoe alles moet lopen. Ik heb een login systeem gemaakt waar je een verificatie email krijgt opgestuurd met de php mail() functie.",
-        "skills": [
-                    "HTML", 
-                    "CSS",
-                    "JS",
-                    "PHP",
-                    "SQL"
-                  ]
+        "skills": 
+        [
+          "HTML", 
+          "CSS",
+          "JS",
+          "PHP",
+          "SQL"
+        ]
     },
     {
         "id": "chathub",
         "image": "/chathub.jpg",
         "title": "ChatHub",
         "details": "Ik begon meteen met programmeren. Alle berichten worden meteen naar een database verstuurd met AJAX. Tegelijk wordt het opgehaald en weergegeven in de div.",
-        "skills": [
-                    "HTML", 
-                    "CSS",
-                    "jQuery",
-                    "PHP",
-                    "SQL"
-                  ]
+        "skills": 
+        [
+          "HTML", 
+          "CSS",
+          "jQuery",
+          "PHP",
+          "SQL"
+        ]
     },
     {
         "id": "sowiso",
         "image": "/sowiso.jpg",
         "title": "SoWiSo",
         "details": "We kregen een design en daarvan maakte we een website",
-        "skills": [
-                    "HTML", 
-                    "CSS",
-                    "JS"
-                  ]
+        "skills": 
+        [
+          "HTML", 
+          "CSS",
+          "JS"
+        ]
     }
   ]
 }
