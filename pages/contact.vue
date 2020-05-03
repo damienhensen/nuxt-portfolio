@@ -65,7 +65,7 @@
         class="text-center font-weight-bold"
         v-bind:class="{ 'text-success': goodResponse, 'text-warning': !goodResponse }"
       >
-        Please wait 10 minutes
+        {{ response }}
       </p>
     </b-container>
     <script>
