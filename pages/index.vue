@@ -23,10 +23,10 @@
             <h3 class="mx-auto pb-3">Hier kan je mijn CV</h3>
             </b-col>
             <b-col cols="6">
-              <a href="/downloads/cv.pdf" class="btn btn-primary">Bekijken</a>
+              <a href="/downloads/cv.pdf" class="btn btn-primary" target="_blank">Bekijken</a>
             </b-col>
             <b-col cols="6">
-              <a href="/downloads/cv.pdf" class="btn btn-primary">Downloaden</a>
+              <a href="/downloads/cv.pdf" class="btn btn-primary" download="damien-hensen-cv.pdf">Downloaden</a>
             </b-col>
           </b-row>
         </b-col>
