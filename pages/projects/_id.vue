@@ -94,6 +94,7 @@ export default {
   },
   data () {
     return {
+      // language: 'nl',
       whatIUsed: 'Wat ik voor dit project heb gebruikt:',
       project: {},
       slide: 0,
@@ -101,8 +102,13 @@ export default {
     }
   },
   async fetch () {
-    // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projects/${this.$route.params.id}`)
-    this.project = await this.$axios.$get(`http://localhost:3001/projectsnl/${this.$route.params.id}`)
+    // if (this.language === 'nl') {
+      // this.project = await this.$axios.$get(`http://localhost:3001/projectsnl/${this.$route.params.id}`)
+      this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsnl/${this.$route.params.id}`)
+    // } else if (this.language === 'en') {
+      // this.project = await this.$axios.$get(`http://localhost:3001/projectsen/${this.$route.params.id}`)
+      // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsen/${this.$route.params.id}`)
+    // }
   },
   methods: {
     onSlideStart (slide) {
@@ -111,11 +117,17 @@ export default {
     onSlideEnd (slide) {
       this.sliding = false
     },
-    getLang (language) {
+    async getLang (language) {
       if (language === 'en') {
+        this.language = 'en'
         this.whatIUsed = 'What I used for this project:'
+        // this.project = await this.$axios.$get(`http://localhost:3001/projectsen/${this.$route.params.id}`)
+        // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsen/${this.$route.params.id}`)
       } else {
+        this.language = 'nl'
         this.whatIUsed = 'Wat ik voor dit project heb gebruikt:'
+        // this.project = await this.$axios.$get(`http://localhost:3001/projectsnl/${this.$route.params.id}`)
+        // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsnl/${this.$route.params.id}`)
       }
     }
   }
