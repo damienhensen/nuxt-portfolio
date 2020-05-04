@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Nav />
+    <Nav v-on:lang="getLang($event)" />
     <b-container
       class="mt-5"
     >
@@ -33,7 +33,7 @@
         >
           <h1>{{ project.title }}</h1>
           <pre>{{ project.details }}</pre>
-          <p>Wat ik voor dit project heb gebruikt:</p>
+          <p>{{ whatIUsed }}</p>
           <ul v-for="skill in project.skills" v-bind:key="skill">
             <li>{{ skill }}</li>
           </ul>
@@ -94,6 +94,7 @@ export default {
   },
   data () {
     return {
+      whatIUsed: 'Wat ik voor dit project heb gebruikt:',
       project: {},
       slide: 0,
       sliding: null
@@ -108,6 +109,13 @@ export default {
     },
     onSlideEnd (slide) {
       this.sliding = false
+    },
+    getLang (language) {
+      if (language === 'en') {
+        this.whatIUsed = 'What I used for this project:'
+      } else {
+        this.whatIUsed = 'Wat ik voor dit project heb gebruikt:'
+      }
     }
   }
 }
