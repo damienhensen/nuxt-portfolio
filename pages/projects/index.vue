@@ -51,7 +51,8 @@ export default {
     }
   },
   async fetch () {
-    this.projects = await this.$axios.$get('https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projects')
+    // this.projects = await this.$axios.$get('https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projects')
+    this.projects = await this.$axios.$get('http://localhost:3001/projects')
   },
   methods: {
     getLang (language) {

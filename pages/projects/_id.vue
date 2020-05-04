@@ -39,7 +39,7 @@
           </ul>
         </b-col>
       </b-row>
-      <b-row>
+      <b-row class="mt-3">
         <b-col col="6">
           <table class="table">
             <h3>Downloads</h3>
@@ -101,7 +101,8 @@ export default {
     }
   },
   async fetch () {
-    this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projects/${this.$route.params.id}`)
+    // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projects/${this.$route.params.id}`)
+    this.project = await this.$axios.$get(`http://localhost:3001/projectsnl/${this.$route.params.id}`)
   },
   methods: {
     onSlideStart (slide) {
