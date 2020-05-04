@@ -103,11 +103,11 @@ export default {
   },
   async fetch () {
     // if (this.language === 'nl') {
-      // this.project = await this.$axios.$get(`http://localhost:3001/projectsnl/${this.$route.params.id}`)
-      this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsnl/${this.$route.params.id}`)
+    // this.project = await this.$axios.$get(`http://localhost:3001/projectsnl/${this.$route.params.id}`)
+    this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsnl/${this.$route.params.id}`)
     // } else if (this.language === 'en') {
-      // this.project = await this.$axios.$get(`http://localhost:3001/projectsen/${this.$route.params.id}`)
-      // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsen/${this.$route.params.id}`)
+    // this.project = await this.$axios.$get(`http://localhost:3001/projectsen/${this.$route.params.id}`)
+    // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsen/${this.$route.params.id}`)
     // }
   },
   methods: {
@@ -117,7 +117,7 @@ export default {
     onSlideEnd (slide) {
       this.sliding = false
     },
-    async getLang (language) {
+    getLang (language) {
       if (language === 'en') {
         this.language = 'en'
         this.whatIUsed = 'What I used for this project:'
