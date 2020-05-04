@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Nav />
+    <Nav v-on:lang="getLang($event)" />
     <b-container
       class="mt-4"
     >
       <h1 class="text-center">Contact</h1>
-      <p class="text-center">Stuur me een berichtje!</p>
+      <p class="text-center">{{ sendMe }}</p>
       <b-form @submit="onSubmit">
         <b-form-group
           id="input-group-email"
-          label="Email adres"
+          :label="email"
           label-for="input-email"
         >
           <b-form-input
@@ -17,19 +17,19 @@
             v-model="form.email"
             type="text"
             required
-            placeholder="Vul je email in"
+            :placeholder="enterEmail"
             @blur="validateEmail"
           />
           <p
             v-if="errors.email"
             class="text-danger"
           >
-            Please enter a valid email
+            {{ validEmail }}
           </p>
         </b-form-group>
         <b-form-group
           id="input-group-name"
-          label="Naam"
+          :label="name"
           label-for="input-name"
         >
           <b-form-input
@@ -37,12 +37,12 @@
             v-model="form.name"
             type="text"
             required
-            placeholder="Vul je naam in"
+            :placeholder="enterName"
           />
         </b-form-group>
         <b-form-group
           id="input-group-message"
-          label="Bericht"
+          :label="message"
           label-for="input-message"
         >
           <b-form-textarea
@@ -50,7 +50,7 @@
             v-model="form.message"
             type="text"
             required
-            placeholder="Vul hier je bericht in"
+            :placeholder="enterMessage"
             rows="10"
             max-rows="10"
           />
@@ -58,7 +58,7 @@
         <input
           type="submit"
           class="btn btn-primary"
-          value="Verstuur"
+          :value="send"
         />
       </b-form>
       <p
@@ -88,6 +88,15 @@ export default {
   },
   data () {
     return {
+      sendMe: 'Stuur me een berichtje!',
+      name: 'Naam',
+      enterName: 'Vul je naam in',
+      email: 'Email adres',
+      enterEmail: 'Vul je email in',
+      validEmail: 'Voer A.U.B. een valide email in',
+      message: 'Bericht',
+      enterMessage: 'Vul hier je bericht in',
+      send: 'Verstuur',
       sent: false,
       response: '',
       goodResponse: false,
@@ -124,6 +133,41 @@ export default {
         this.goodResponse = false
       } else {
         this.goodResponse = true
+      }
+    },
+    getLang (language) {
+      if (language === 'en') {
+        this.sendMe = 'Send me a message!'
+        this.name = 'Name'
+        this.enterName = 'Enter your name'
+        this.email = 'Email address'
+        this.enterEmail = 'Enter your email'
+        this.validEmail = 'Please enter a valid email'
+        this.message = 'Message'
+        this.enterMessage = 'Enter your message here'
+        this.send = 'Send'
+        if (this.response === 'Please wait 10 minutes' || this.response === 'Wacht A.U.B. 10 minuten') {
+          this.response = 'Please wait 10 minutes'
+        }
+        if (this.response === 'Mail has been sent :)' || this.response === 'Mail is verstuurd :)') {
+          this.response = 'Mail has been sent :)'
+        }
+      } else {
+        this.sendMe = 'Stuur me een berichtje!'
+        this.name = 'Naam'
+        this.enterName = 'Vul je naam in'
+        this.email = 'Email adres'
+        this.enterEmail = 'Vul je email in'
+        this.validEmail = 'Voer A.U.B. een valide email in'
+        this.message = 'Bericht'
+        this.enterMessage = 'Vul hier je bericht in'
+        this.send = 'Verstuur'
+        if (this.response === 'Please wait 10 minutes' || this.response === 'Wacht A.U.B. 10 minuten') {
+          this.response = 'Wacht A.U.B. 10 minuten'
+        }
+        if (this.response === 'Mail has been sent :)' || this.response === 'Mail is verstuurd :)') {
+          this.response = 'Mail is verstuurd :)'
+        }
       }
     }
   }

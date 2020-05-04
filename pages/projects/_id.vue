@@ -4,7 +4,7 @@
     <b-container
       class="mt-5"
     >
-      <div v-if="$fetchState.pending">Fetching post #{{$route.params.id}}...</div>
+      <div v-if="$fetchState.pending">Fetching project: {{$route.params.id}}...</div>
       <b-row v-else>
         <b-col lg="8">
           <b-carousel

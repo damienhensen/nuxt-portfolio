@@ -17,13 +17,13 @@
               to="/"
               class="nav-link"
             >
-            About me
+            {{ aboutMe }}
             </n-link>
             <n-link
               to="/projects"
               class="nav-link"
             >
-            Work
+            {{ work }}
             </n-link>
             <n-link
               to="/contact"
@@ -31,6 +31,25 @@
             >
             Contact
             </n-link>
+          </b-navbar-nav>
+          <b-navbar-nav
+            class="ml-auto"
+          >
+            <a class="nav-link lan">
+              <span
+                v-bind:class="{ 'active': isNL }"
+                @click="changeToNL"
+              >
+                Nederlands
+              </span>
+              /
+              <span
+                v-bind:class="{ 'active': !isNL }"
+                @click="changeToEN"
+              >
+              English
+              </span>
+            </a>
           </b-navbar-nav>
         </b-collapse>
       </b-container>
@@ -42,11 +61,48 @@
 export default {
   data () {
     return {
-      lang: 'nl'
+      lang: 'nl',
+      isNL: true,
+      aboutMe: 'Over mij',
+      work: 'Werk'
     }
   },
   mounted () {
+    if (localStorage.lang) {
+      this.lang = localStorage.lang
+    }
+    if (localStorage.isNL) {
+      console.log(localStorage.isNL)
+      this.isNL = JSON.parse(localStorage.isNL.toLowerCase())
+    }
+    if (this.lang === 'en') {
+      this.aboutMe = 'About me'
+      this.work = 'Work'
+    } else {
+      this.aboutMe = 'Over mij'
+      this.work = 'Werk'
+    }
     this.$emit('lang', this.lang)
+  },
+  methods: {
+    changeToNL () {
+      this.lang = 'nl'
+      this.isNL = true
+      localStorage.lang = this.lang
+      localStorage.isNL = this.isNL
+      this.aboutMe = 'Over mij'
+      this.work = 'Werk'
+      this.$emit('lang', this.lang)
+    },
+    changeToEN () {
+      this.lang = 'en'
+      this.isNL = false
+      localStorage.lang = this.lang
+      localStorage.isNL = this.isNL
+      this.aboutMe = 'About me'
+      this.work = 'Work'
+      this.$emit('lang', this.lang)
+    }
   }
 }
 </script>
@@ -59,5 +115,23 @@ export default {
 .nav-link:hover {
     color: #FFFFFF !important;
     transition: .3s;
+}
+
+.nav-link.lan .active {
+    color: #FFFFFF !important;
+}
+
+.nav-link.lan {
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.nav-link.lan span:not(.active):hover {
+    color: rgba(255,255,255,.7) !important;
+}
+
+.nav-link.lan span {
+    color: #FFFFFFa2;
+    cursor: pointer;
 }
 </style>

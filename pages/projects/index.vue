@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Nav />
+    <Nav v-on:lang="getLang($event)" />
     <b-container class="projects">
-      <h1 class="text-center m-4">Mijn werk</h1>
+      <h1 class="text-center m-4">{{ myWork }}</h1>
       <b-row class="mt-3">
         <b-col
           v-for="project of projects"
@@ -46,11 +46,21 @@ export default {
   },
   data () {
     return {
+      myWork: 'Mijn werk',
       projects: []
     }
   },
   async fetch () {
     this.projects = await this.$axios.$get('https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projects')
+  },
+  methods: {
+    getLang (language) {
+      if (language === 'en') {
+        this.myWork = 'My work'
+      } else {
+        this.myWork = 'Mijn werk'
+      }
+    }
   }
 }
 </script>
