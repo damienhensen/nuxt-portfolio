@@ -65,7 +65,7 @@
           "image": "/slides/purpleshrimp1.jpg"
         },
         {
-          "caption": "Profiel",
+          "caption": "Profile",
           "image": "/slides/purpleshrimp2.jpg"
         },
         {
@@ -103,8 +103,8 @@
           "link": "/downloads/purpleshrimp/styleboard.pdf"
         },
         {
-          "name": "Technisch Ontwerp",
-          "filename": "damien-hensen-purpleshrimp-technischontwerp.pdf",
+          "name": "Technical Design",
+          "filename": "damien-hensen-purpleshrimp-technicaldesign.pdf",
           "link": "/downloads/purpleshrimp/technischontwerp.xlsx"
         },
         {

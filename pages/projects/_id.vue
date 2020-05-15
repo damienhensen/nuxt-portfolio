@@ -32,7 +32,7 @@
           lg="4"
         >
           <h1>{{ project.title }}</h1>
-          <pre>{{ project.details }}</pre>
+          <pre>{{ details }}</pre>
           <p>{{ whatIUsed }}</p>
           <ul v-for="skill in project.skills" v-bind:key="skill">
             <li>{{ skill }}</li>
@@ -94,9 +94,9 @@ export default {
   },
   data () {
     return {
-      // language: 'nl',
       whatIUsed: 'Wat ik voor dit project heb gebruikt:',
       project: {},
+      details: '',
       slide: 0,
       sliding: null
     }
@@ -121,11 +121,30 @@ export default {
       if (language === 'en') {
         this.language = 'en'
         this.whatIUsed = 'What I used for this project:'
+        switch (this.$route.params.id) {
+          case 'my-band':
+            this.details = 'We got code from a teacher, ALTO Router en Plates/League (template engine).\r\nI made user stories, after that I made a design and wireframes.\r\nThen I started programming.'
+            break
+          case 'purple-shrimp':
+            this.details = 'First my teammate made a design for the site. He made what you can see. I made the rest.\r\nI made a flowchart to show how everything is supposed to go.\r\nI made a login system wherein you get a verification email with the php mail() function.'
+            break
+          case 'chathub':
+            this.details = 'I immediatly started programming.\r\nWhen you send a message it gets sent to a database with AJAX.\r\nAnd every message gets fetched and put inside a div every second or so.'
+            break
+          case 'sowiso':
+            this.details = 'We got a design and from that design we made a website.\r\nI made most of the site: the home page, technologies, careers and contact.'
+            break
+          default
+            :
+            this.details = this.project.details
+            break
+        }
         // this.project = await this.$axios.$get(`http://localhost:3001/projectsen/${this.$route.params.id}`)
         // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsen/${this.$route.params.id}`)
       } else {
         this.language = 'nl'
         this.whatIUsed = 'Wat ik voor dit project heb gebruikt:'
+        this.details = this.project.details
         // this.project = await this.$axios.$get(`http://localhost:3001/projectsnl/${this.$route.params.id}`)
         // this.project = await this.$axios.$get(`https://my-json-server.typicode.com/damienhensen/nuxt-portfolio/projectsnl/${this.$route.params.id}`)
       }
